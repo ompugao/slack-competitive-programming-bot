@@ -1,0 +1,17 @@
+version: '2.3'
+
+services:
+  bot:
+    image: ompugao/slack-competitive-programming-bot
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/data
+      - /etc/localtime:/etc/localtime:ro
+    env_file:
+      - .env
+    environment:
+      TZ: Asia/Tokyo
+    restart: always
+    command: python run.py
