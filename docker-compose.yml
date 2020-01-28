@@ -11,6 +11,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
+    tty: true
     environment:
       TZ: Asia/Tokyo
     restart: always
