@@ -27,7 +27,6 @@ def main():
     bot = Bot()
 
     schedule.every().friday.at("22:00").do(send_statistics, bot=bot)
-    schedule.every().monday.at("14:12").do(send_statistics, bot=bot)
     ScheduleThread().start()
 
 
