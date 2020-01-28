@@ -87,6 +87,23 @@ def get_statistics():
             s.append('- %s: %s'%(user, ret['accepted_count']))
     return s
 
+
+@listen_to('^help$')
+def help(message):
+    s = """
+    Usage:
+    register atcoder user
+    `register username`
+    unregister atcoder user
+    `unregister username`
+    see statistics
+    `stat`
+    or
+    `stat username`
+    """
+    message.reply(s)
+
+
 @listen_to('^stat$')
 @listen_to('^stat (.*)$')
 def statistics(message, user=None):

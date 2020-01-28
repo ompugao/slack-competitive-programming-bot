@@ -43,10 +43,10 @@ def main():
     schedule.every().thursday.at("10:00").do(send_statistics, bot=bot)
     schedule.every().friday.at("10:00").do(send_statistics, bot=bot)
     schedule.every().saturday.at("22:00").do(send_statistics, bot=bot)
-
     ScheduleThread().start()
 
 
+    print('bot start')
     bot.run()
 
 if __name__ == "__main__":
