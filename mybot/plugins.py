@@ -49,11 +49,11 @@ class DataStore(object):
         return False
 
 def get_daily_statistics():
-    yesterday_midnight = datetime.datetime.combine((datetime.datetime.now().date() - datetime.timedelta(days=1)), datetime.time(hour=0, minute=0, second=0)) 
+    yesterday_midnight = datetime.datetime.combine((datetime.datetime.now().date() - datetime.timedelta(days=1)), datetime.time(hour=0, minute=0, second=0))
 
     ss = io.StringIO()
 
-    ss.write('Accepted Submissions from yesterday:\n')
+    ss.write('Accepted Submissions from %s:\n'%(yesterday_midnight.strftime('%Y/%m/%d %H:%M:%S'),))
     for user in users:
         r = requests.get('https://kenkoooo.com/atcoder/atcoder-api/results?user=%s'%(user,))
         if r.status_code != 200:
